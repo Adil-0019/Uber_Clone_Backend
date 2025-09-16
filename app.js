@@ -4,6 +4,7 @@ const express = require('express')
 const cors = require('cors')
 const app = express()
 const connectToDb = require('./db/db')
+const cookieParse = require('cookie-parser')
 connectToDb()
 
 const userRoutes = require('./routes/user.routes')
@@ -12,6 +13,7 @@ const userRoutes = require('./routes/user.routes')
 
 app.use(cors())
 app.use(express.urlencoded({extended:true}))
+app.use(cookieParse())
 
 app.get('/',(req,res)=>{ 
     res.send('Hello World')
