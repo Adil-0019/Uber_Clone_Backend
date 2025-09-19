@@ -19,6 +19,7 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique:true,
         minlength:[5,'Email must be at least 5 character long']
+        ,match: [/\S+@\S+\.\S+/, 'is invalid'],
     },
     password:{
         type:String,
